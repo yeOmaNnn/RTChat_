@@ -82,9 +82,8 @@ Token bucket (`golang.org/x/time/rate`) на клиента, ключ — уни
 | `POSTGRES_DSN` | `...` | строка подключения к Postgres |
 | `REDIS_ADDR` | *(пусто)* | адрес Redis; пусто = pub/sub выключен, режим одного инстанса |
 | `RATE_LIMIT_RPS` | `5` | сообщений в секунду на клиента |
-| `RATE_LIMIT_BURST` | `10` | размер всплеска (burst) для token bucket |
 | `HISTORY_LIMIT` | `50` | сколько последних сообщений отдавать при входе в комнату |
-| `SHUTDOWN_TIMEOUT_SEC` | `10` | таймаут graceful shutdown в секундах |
+| `SHUTDOWN_TIMEOUT_SEC` | `10` | таймаут shutdown в секундах |
 
 ## Запуск
 
