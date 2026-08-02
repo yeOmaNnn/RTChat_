@@ -6,6 +6,6 @@ type Message struct {
 	RoomID 		string 		`json:"room_id"`
 	Username 	string 		`json:"username"`
 	Content 	string 		`json:"content"`
-	CreateAt 	time.Time 	`json:"created_at"`
+	CreatedAt 	time.Time 	`json:"created_at"`
 }
 

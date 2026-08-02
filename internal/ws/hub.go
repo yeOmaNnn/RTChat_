@@ -3,16 +3,16 @@ package ws
 import (
 	"context"
 	"sync" 
-	"rtchat/internal/pubsub"
-	"rtchat/internal/storage"
-	"rtchat/internal/ratelimiter" 
+	"RTChat/internal/pubsub"
+	"RTChat/internal/storage"
+	"RTChat/internal/ratelimit" 
 )
 
 type Hub struct {
 	mu sync.Mutex 
 	rooms map[string]*Room 
 	store *storage.Store 
-	limiter *ratelimiter.Limiter
+	limiter *ratelimit.Limiter
 	bus pubsub.Broadcaster 
 
 	ctx context.Context
@@ -20,7 +20,7 @@ type Hub struct {
 	wg sync.WaitGroup 
 }
 
-func NewHub(store *storage.Store, limiter *ratelimiter.Limiter, bus pubsub.Broadcaster) *Hub {
+func NewHub(store *storage.Store, limiter *ratelimit.Limiter, bus pubsub.Broadcaster) *Hub {
 	ctx, cancel := context.WithCancel(context.Background())
 	return &Hub {
 		rooms: make(map[string]*Room), 

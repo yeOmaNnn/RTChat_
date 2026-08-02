@@ -32,7 +32,7 @@ func (s *Store) SaveMessage(ctx context.Context, m Message) (Message, error) {
 								 VALUES ($1, $2, $3)
 								 RETURNING id, created_at
 								`, m.RoomID, m.Username, m.Content,)
-	if err := row.Scan(&m.ID, &m.CreateAt); err != nil {
+	if err := row.Scan(&m.ID, &m.CreatedAt); err != nil {
 		return Message{}, fmt.Errorf("вставка сообщения: %w", err)
 	}
 	return m, nil 
@@ -54,7 +54,7 @@ func (s *Store) History(ctx context.Context, roomID string, limit int) ([]Messag
 	var msgs []Message 
 	for rows.Next() {
 		var m Message
-		if err := rows.Scan(&m.ID, &m.RoomID, &m.Username, &m.Content, &m.CreateAt); err != nil {
+		if err := rows.Scan(&m.ID, &m.RoomID, &m.Username, &m.Content, &m.CreatedAt); err != nil {
 			return nil, fmt.Errorf("Поиск истории сообщении: %w", err)
 		}
 		msgs = append(msgs, m)
