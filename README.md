@@ -15,7 +15,7 @@ hub-паттерном на горутинах и каналах, rate limiting 
 
 ## Стек
 
-Go 1.22+ · `gorilla/websocket` · `pgx/v5` (PostgreSQL) · `go-redis/v9` ·
+Go 1.25+ · `gorilla/websocket` · `pgx/v5` (PostgreSQL) · `go-redis/v9` ·
 `golang.org/x/time/rate` · Docker / Docker Compose
 
 ## Структура проекта
